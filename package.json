@@ -1,0 +1,15 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "my new node app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Believe Robert",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
