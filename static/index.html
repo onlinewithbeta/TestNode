@@ -1,14 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Projects</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Link to your CSS file -->
+
 </head>
 <body>
-    <h1>Welcome to My Simple Web App</h1>
-    <button id="clickMe">Click Me!</button>
-    <p id="message"></p>
+    <div class="menu-icon" id="menuIcon">&nbsp;</div> 
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      Believe Robert
+    </div>
+    <nav>
+      <ul>
+        <li><a href=".../home.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="http://localhost:26543/storage/emulated/0/myProgramming/PROJECTS/index.html">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to My Projects Page</h1>
+    <p>
+      I'm a web developer specializing in front end web development 
+    </p>
+    <a href="#projects" class="cta-button">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm Believe Robert, a web developer and student of Civil Engineering. This website showcases my works, skills, and interests.
+    </p>
+    <img src="IMG/profile-pic.jpg" alt="Your Name">
+  </section>
+
+  <!-- Projects Showcase -->
+  <section id="projects">
+    <h2>My Projects</h2>
     
+    <div class="project-card">
+ <img src="EngineeringFormulas/IMG/OsiaruMath.jpg"/>
+      <h3>Project OsiaruMath</h3>
+      <p>
+        OsiaruMath is designed helps Engineering students just like you to solve some engineering problems with ease. Such as : Stress, Strain, Area of various shapes, Young modules of materials, etc
+      </p>
+      <a href="http://localhost:26543/storage/emulated/0/myProgramming/PROJECTS/EngineeringFormulas/index.html">View Project</a>
+    </div>
+    <!-- Repeat for more projects -->
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2023 Your Name. All Rights Reserved.
+    </p>
+  </footer>
 </body>
 </html>

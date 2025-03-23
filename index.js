@@ -30,7 +30,6 @@ app.use( compression() );
 
 // log every request to the terminal
 app.use((req, res, next) => {
-  console.log(req.url);
   console.log(req.origin);
   next();
 });
@@ -45,7 +44,7 @@ let readyyy ={
   
 // home page route
 app.get('/Osiaru', (req, res) => {
-  res.send(readyyy);
+  res.sendFile(`${cfg.dir.static}/index.html`);
 });
 
 
