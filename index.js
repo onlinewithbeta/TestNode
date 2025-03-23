@@ -1,21 +1,30 @@
 // Express application
 import express from 'express';
 import compression from 'compression';
-import { fileURLToPath } from 'url';
-import { dirname, sep } from 'path';
+import {
+    fileURLToPath
+} from 'url';
+import {
+    dirname,
+    sep
+} from 'path';
+
+
 
 // configuration
 const
-  __dirname = dirname(fileURLToPath( import.meta.url )) + sep,
-  cfg = {
-    port: process.env.PORT || 3000,
+__dirname = dirname(fileURLToPath(import.meta.url)) + sep,
+cfg = {
+    port: process.env.PORT || 2026,
     dir: {
-      root:   __dirname,
-      static: __dirname + 'static' + sep
+        root: __dirname,
+        static: __dirname + 'static' + sep
     }
-  };
+};
 
-console.dir(cfg, { depth: null, color: true });
+console.dir(cfg, {
+    depth: null, color: true
+});
 // Express initiation
 const app = express();
 
@@ -23,38 +32,39 @@ const app = express();
 app.disable('x-powered-by');
 
 // serve static assets
-app.use(express.static( cfg.dir.static ));
+app.use(express.static(cfg.dir.static));
 
 // HTTP compression
-app.use( compression() );
+app.use(compression());
 
-// log every request to the terminal
-app.use((req, res, next) => {
-  console.log(req.origin);
-  next();
-});
+function responder(req, res, next) {
+    console.log("New user ");
+    next();
+}
 
-let readyyy ={
-  "type": "pageInfo",
-  "kind": "pureOBJ",
-  "course_title": "Chemistry",
-  "code": "CHM 131",
-  "session": "2023/2024",
-  "time": "2hours"};
-  
 // home page route
-app.get('/Osiaru', (req, res) => {
-  res.sendFile(`${cfg.dir.static}/index.html`);
+app.get('/', responder,(req,res)=>{
+    res.sendFile(`${cfg.dir.static}/index.html`);
+});
+// home page route
+app.get('/Osiaru', responder,(req,res)=>{
+    res.sendFile(`${cfg.dir.static}/index.html`);
 });
 
+
+
+//get request
+app.get('/data', (req, res) => {
+    console.log(`Origin is ${req.headers.origin}`);
+    res.sendFile(`${cfg.dir.static}/data.json`)
+});
 
 // 404 error
 app.use((req, res) => {
-  res.status(404).send('Not found');
+    res.status(404).send('Not found');
 });
 
 // start server
 app.listen(cfg.port, () => {
-  console.log(`http://localhost:${ cfg.port }`);
+    console.log(`http://localhost:${ cfg.port }`);
 });
-
