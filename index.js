@@ -31,12 +31,21 @@ app.use( compression() );
 // log every request to the terminal
 app.use((req, res, next) => {
   console.log(req.url);
+  console.log(req.origin);
   next();
 });
 
+let readyyy ={
+  "type": "pageInfo",
+  "kind": "pureOBJ",
+  "course_title": "Chemistry",
+  "code": "CHM 131",
+  "session": "2023/2024",
+  "time": "2hours"};
+  
 // home page route
-app.get('/', (req, res) => {
-  res.send('Hello World! version 1.0.1');
+app.get('/Osiaru', (req, res) => {
+  res.send(readyyy);
 });
 
 
